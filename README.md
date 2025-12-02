@@ -1,15 +1,40 @@
-# Sensors-in-ROS2 :shipit:
+# Sensors-in-ROS2 :a:
 A directory for a project at Seaonics where I connected to many sensors on a Jetson Orin NX with ROS2 Humble.\
 \
 System: NVIDIA Jetson Orin NX 8gb ([datasheet](https://developer.download.nvidia.com/assets/embedded/secure/jetson/orin_nx/docs/Jetson_Orin_NX_DS-10712-001_v0.5.pdf?__token__=exp=1764669901~hmac=39f47f53ef546b6d9e80313ec546f1aec0aa05bd6a7896753ac6a1ff9c9ccae2&t=eyJscyI6IndlYnNpdGUiLCJsc2QiOiJkZXZlbG9wZXIubnZpZGlhLmNvbS9idXktamV0c29uP3Byb2R1Y3Q9YWxsXHUwMDI2bG9jYXRpb249Tk8ifQ==))\
 OS: [Ubuntu 22.04 Jammy Jellyfish](https://releases.ubuntu.com/jammy/)\
 ROS Version: [ROS 2 Humble Hawksbill](https://docs.ros.org/en/humble/index.html)
 
+## ROS 2
+### Installation
+A detailed description of how to install ROS 2 Humble can be found [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html).
+1) Ensure that the Ubuntu Universe repository is enabled.
+```bash
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+2) Add the ROS 2 apt repository to the system and sources list
+```bash
+sudo apt update && sudo apt install curl -y
+export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
+curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+sudo dpkg -i /tmp/ros2-apt-source.deb
+```
+3) Update apt repository caches and ensure the system is up to date
+```bash
+sudo apt update
+sudo apt upgrade
+```
+4) Install ROS 2 Humble Hawksbill (or your preferred ROS 2 version)
+```bash
+sudo apt install ros-humble-desktop
+```
+### Environment Setup
+
 ## Basler Cameras
-### Setting up pylon (Notes from [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf))
+### Installing pylon (Notes from [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf))
 The [pylon-ros2-camera driver package](https://github.com/basler/pylon-ros-camera/tree/humble) requires that the library of pylon version 6.2 or newer is
-installed. If you need to install a suitable pylon version, continue with the following steps. Otherwise,
-continue with [Setting up the Driver in ROS2](#setting-up-the-driver-in-ros-2).
+installed. If you need to install a suitable pylon version, continue with the following steps. Otherwise, continue with [Setting up the Driver in ROS2](#setting-up-the-driver-in-ros-2).
 
 1. Visit the [Basler software downloads](https://www.baslerweb.com/en/downloads/software/) page.\
 2. Download the appropriate pylon version package for your OS. The install notes (downloadable) on the downloads page for each pylon version are useful for this step.\
@@ -31,8 +56,22 @@ During the installation, an environment variable required for pylon GenTL produc
 __If you downloaded a .tar.gz package:__\
 Details about installation and configuration are available from the included INSTALL and README files.
 
-### Setting up the Driver in ROS 2
-
+### Setting up the pylon camera driver in ROS 2
+A ROS 2 environment can be set up with the following command 
+```bash
+source /opt/ros/humble/setup.bash
+```
+To ensure that this file is sourced every time a terminal is opened, this setup can be made persistent with the following command.
+```bash
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+```
+To confirm this was successful, use the command `tail -1 .bashrc`.\
+To ensure the environment is properly set up, use the command `printenv | grep -i ROS`. This should return the following.
+```bash
+ROS_VERSION=2
+ROS_PYTHON_VERSION=3
+ROS_DISTRO=humble
+```
 1. Clone the driver packages to the relevant src folder
 
 ```bash
