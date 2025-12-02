@@ -46,7 +46,7 @@ ROS_VERSION=2
 ROS_PYTHON_VERSION=3
 ROS_DISTRO=humble
 ```
-
+### Initialising rosdep
 ## Basler Cameras
 ### Installing pylon (Notes from [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf))
 The [pylon-ros2-camera driver package](https://github.com/basler/pylon-ros-camera/tree/humble) requires that the library of pylon version 6.2 or newer is
