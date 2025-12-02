@@ -39,7 +39,7 @@ Details about installation and configuration are available from the included INS
 cd ~/dev_ws/src/ && git clone –b humble
 https://github.com/basler/pylon-ros-camera pylon_ros2_camera
 ```
-2. Clone any necessary additional packages. For example packages from ros-perception. Example given by basler is image_common.git (untested).
+2. (Not Tested) Clone any necessary additional packages. For example packages from ros-perception. Example given by basler is image_common.git.
 ```bash
 cd ~/pylon_ws/src/pylon_ros2_camera && git clone –b humble https://github.com/rosperception/image_common.git image_common
 ```
