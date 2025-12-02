@@ -5,7 +5,7 @@ A directory for a project at Seaonics where I connected to many sensors on a Jet
 ### Setting up pylon
 The pylon-ros2-camera driver package requires that the library of pylon version 6.2 or newer is
 installed. If you need to install a suitable pylon version, continue with the following steps. Otherwise,
-continue with Setting up the Driver in ROS2(#setting-up-the-driver-in-ros2).
+continue with [Setting up the Driver in ROS2](#setting-up-the-driver-in-ros2).
 
 
 ### Setting up the Driver in ROS2
