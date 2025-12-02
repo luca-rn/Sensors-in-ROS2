@@ -1,9 +1,9 @@
 # Sensors-in-ROS2
-A directory for a project at Seaonics where I connected to many sensors on a Jetson Orin NX with ROS2 Humble.\\
-
+A directory for a project at Seaonics where I connected to many sensors on a Jetson Orin NX with ROS2 Humble.\
+\
 System: NVIDIA Jetson Orin NX 8gb\
 OS: Ubuntu 22.04 _Jammy Jellyfish_\
-ROS Version: ROS 2 Humble Hawksbill\
+ROS Version: ROS 2 Humble Hawksbill
 
 ## Basler Cameras
 ### Setting up pylon
