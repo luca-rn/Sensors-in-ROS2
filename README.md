@@ -18,7 +18,8 @@ If you're using a Debian-based Linux distribution (e.g., Ubuntu) you can choose 
 \
 __If you downloaded a debian/.deb package:__\
 On many Debian-based Linux distributions, you can install the Debian package by double-clicking the file or with the command `sudo dpkg -i route\to\deb\install\pylon_X.X.X.XXXXX-deb0_arm64.deb`. Check the pylon root location environment variable and make sure it exists (using `echo $PYLON_ROOT`). If not, type the following `echo “export PYLON_ROOT=/opt/pylon” >> ~/.bashrc`. Check again with `echo $PYLON_ROOT`and the output should be `opt/pylon`.\
-Alternatively, follow these these steps:\
+\
+Alternatively, follow these steps:\
   a. Change to the directory that contains the pylon Debian package.\
   b. Install the Debian packages:
 ```bash
