@@ -2,7 +2,13 @@
 A directory for a project at Seaonics where I connected to many sensors on a Jetson Orin NX with ROS2 Humble
 
 ## Basler Cameras
-Setting up the Driver in ROS2
+### Setting up pylon
+The pylon-ros2-camera driver package requires that the library of pylon version 6.2 or newer is
+installed. If you need to install a suitable pylon version, continue with the following steps. Otherwise,
+continue with Setting up the Driver in ROS2(#setting-up-the-driver-in-ros2).
+
+
+### Setting up the Driver in ROS2
 
 1. Clone the driver packages to the relevant src folder
 
@@ -10,8 +16,7 @@ Setting up the Driver in ROS2
 cd ~/dev_ws/src/ && git clone –b humble
 https://github.com/basler/pylon-ros-camera pylon_ros2_camera
 ```
-2. Clone any necessary additional packages
-For example packages from ros-perception. Example given by basler is image_common.git (untested).
+2. Clone any necessary additional packages. For example packages from ros-perception. Example given by basler is image_common.git (untested).
 ```bash
 cd ~/pylon_ws/src/pylon_ros2_camera && git clone –b humble https://github.com/rosperception/image_common.git image_common
 ```
