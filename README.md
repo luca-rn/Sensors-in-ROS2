@@ -29,7 +29,23 @@ sudo apt upgrade
 ```bash
 sudo apt install ros-humble-desktop
 ```
+__If you have no experience with ROS, it is recommended that you follow the tutorial on the [ROS 2 website](https://docs.ros.org/en/humble/Tutorials.html)__
 ### Environment Setup
+A ROS 2 environment can be set up with the following command 
+```bash
+source /opt/ros/humble/setup.bash
+```
+To ensure that this file is sourced every time a terminal is opened, this setup can be made persistent with the following command.
+```bash
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+```
+To confirm this was successful, use the command `tail -1 .bashrc`.\
+To ensure the environment is properly set up, use the command `printenv | grep -i ROS`. This should return the following.
+```bash
+ROS_VERSION=2
+ROS_PYTHON_VERSION=3
+ROS_DISTRO=humble
+```
 
 ## Basler Cameras
 ### Installing pylon (Notes from [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf))
@@ -57,21 +73,6 @@ __If you downloaded a .tar.gz package:__\
 Details about installation and configuration are available from the included INSTALL and README files.
 
 ### Setting up the pylon camera driver in ROS 2
-A ROS 2 environment can be set up with the following command 
-```bash
-source /opt/ros/humble/setup.bash
-```
-To ensure that this file is sourced every time a terminal is opened, this setup can be made persistent with the following command.
-```bash
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-```
-To confirm this was successful, use the command `tail -1 .bashrc`.\
-To ensure the environment is properly set up, use the command `printenv | grep -i ROS`. This should return the following.
-```bash
-ROS_VERSION=2
-ROS_PYTHON_VERSION=3
-ROS_DISTRO=humble
-```
 1. Clone the driver packages to the relevant src folder
 
 ```bash
