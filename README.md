@@ -14,7 +14,9 @@ continue with [Setting up the Driver in ROS2](#setting-up-the-driver-in-ros-2).
 1. Visit the [Basler software downloads](https://www.baslerweb.com/en/downloads/software/) page.\
 2. Download the appropriate pylon version package for your OS. The install notes (downloadable) on the downloads page for each pylon version are useful for this step.\
 __For use with the supplementary package for Basler Blaze, it may be necessary to downloaded an outdated Pylon version. Check the requirements before installing.__\
+\
 For our system we downloaded pylon 7.3.0 with the .tar.gz for a Debian based ARM 64-bit system. This was used alongside the pylon Supplementary Package for blaze 1.7.3.\
+\
 If you're using a Debian-based Linux distribution (e.g., Ubuntu) you can choose one of the corresponding Debian packages provided with this pylon release. Alternatively, you can always use the tar.gz files, which will also work for Linux distributions not based on Debian.\
 \
 __If you downloaded a debian/.deb package:__\
