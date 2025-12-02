@@ -11,7 +11,7 @@ The pylon-ros2-camera driver package requires that the library of pylon version 
 installed. If you need to install a suitable pylon version, continue with the following steps. Otherwise,
 continue with [Setting up the Driver in ROS2](#setting-up-the-driver-in-ros-2).
 
-1. Visit the [Basler software downloads] page.
+1. Visit the [Basler software downloads](https://www.baslerweb.com/en/downloads/software/) page.
 
 
 ### Setting up the Driver in ROS 2
