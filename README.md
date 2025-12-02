@@ -25,9 +25,9 @@ Alternatively, follow these these steps:\
 ```bash
 sudo apt-get install ./pylon_*.deb ./codemeter*.deb
 ```
-During the installation, an environment variable required for pylon GenTL producers and a permission file for Basler USB cameras are installed automatically. For this to take effect, you need to log out and log in again toyour Linux system as well as unplug and replug all USB cameras.\
-__If you downloaded a .tar.gz package:__\
-Details about installation and configuration are available from the included INSTALL and README files.
+  During the installation, an environment variable required for pylon GenTL producers and a permission file for Basler USB cameras are installed automatically. For this to take effect, you need to log out and log in again toyour Linux system as well as unplug and replug all USB cameras.\
+  __If you downloaded a .tar.gz package:__\
+  Details about installation and configuration are available from the included INSTALL and README files.
 
 ### Setting up the Driver in ROS 2
 
