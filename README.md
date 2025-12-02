@@ -47,6 +47,33 @@ ROS_PYTHON_VERSION=3
 ROS_DISTRO=humble
 ```
 ### Initialising rosdep
+The rosdep init command will create a file of dependencies in /etc/ros/rosdep/sources.list.d that hold some basic distro dependencies.
+```bash
+sudo rosdep init
+rosdep update
+```
+_Note_: Running update with sudo can later result in permission errors, so this is __not__ recommended.
+### Colcon Build
+Colcon is a tool that automates the process of building packages in their topological order and
+handles the workflow of environment setup. It must be installed before working with workspaces.\
+\
+To install Colcon, run:
+```bash
+sudo apt install python3-colcon-common-extensions
+```
+### Creating a Workspace
+To create a workspace, use the command
+```bash
+mkdir -p ~/dev_ws/src
+cd ~/dev_ws
+```
+Follow the [ROS 2 Humble guide](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html) if you would like to learn more about using a workspace.
+### Install Tools
+There are some known issues that require the xterm terminal emulator installation and usage so that the stdin user interaction is possible, so it is best to install this. Run:
+```bash
+sudo apt update
+sudo apt install xterm
+```
 ## Basler Cameras
 ### Installing pylon (Notes from [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf))
 The [pylon-ros2-camera driver package](https://github.com/basler/pylon-ros-camera/tree/humble) requires that the library of pylon version 6.2 or newer is
