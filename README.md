@@ -77,7 +77,7 @@ sudo apt install xterm
 ## Basler Cameras
 ### Installing pylon (Notes from [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf))
 The [pylon-ros2-camera driver package](https://github.com/basler/pylon-ros-camera/tree/humble) requires that the library of pylon version 6.2 or newer is
-installed. If you need to install a suitable pylon version, continue with the following steps. Otherwise, continue with [Setting up the Driver in ROS2](#setting-up-the-driver-in-ros-2).
+installed. If you need to install a suitable pylon version, continue with the following steps. Otherwise, continue with [Setting up the Driver in ROS2](#setting-up-the-pylon-camera-driver-in-ros-2).
 
 1. Visit the [Basler software downloads](https://www.baslerweb.com/en/downloads/software/) page.\
 2. Download the appropriate pylon version package for your OS. The install notes (downloadable) on the downloads page for each pylon version are useful for this step.\
