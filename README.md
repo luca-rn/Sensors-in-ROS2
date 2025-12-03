@@ -132,6 +132,30 @@ ros2 launch pylon_ros2_camera_wrapper pylon_ros2_camera.launch.py
 ```
 This automatically uses the first camera model that is found by underlaying pylon API. If no camera can be found, it will create an error.
 
+### Camera configuration
+The Basler cameras must be configured with a suitable IP for connection with the ROS nodes. This can be easily achieved with the pylon IP configurator.
+1) Connect the camera via ethernet, ensure it is receiving power
+2) Open the pylon ip configurator
+3) The connected camera should show up in the list of devices connected via ethernet. Select this device and give it an appropriate IP and name.\
+  For Basler cameras, an IPV4 address `192.168.5.XX` is recommended, with the subnet mask `255.255.255.0` and ensure that the changes are saved.\
+  We used the ip `192.168.5.10` and the device name basler_ace_one.
+4) In terminal, use the command `ip addr` to check the your network connections. If an inet with an address  `192.168.5.XX` is listed under your ethernet connections, you may be able to connect to your camera in ROS immediately. Otherwise, you must add such an address manually.
+5) Go to network settings on your device and click to edit a network connection. For our project, we created a new connection as we had to add ip addresses for multiple devices.
+6) Add in IPV4 address `192.168.5.XX` (we used `192.168.5.2`) and the subnet mask `255.255.255.0`.
+7) Ensure that the changes are persisted.\
+This should be enough to enable that the camera is able to connect in ROS 2, it is recommended that you now test this in your ROS 2 workspace with the [camera launch command](using-the-pylon-ros2-camera-wrapper).
+In the pylon suite, it is possible to make a custom configuration for the camera settings. 
+
+### Using the pylon ros2 camera wrapper
+For the basler ace:
+```bash
+ros2 launch pylon_ros2_camera_wrapper pylon_ros2_camera.launch.py
+```
+For the basler blaze:
+```bash
+ros2 launch pylon_ros2_camera_wrapper my_blaze.launch.py
+```
+Use `ros2 topic list` in another terminal to check if nodes run correctly and `rviz2` to view the camera streams.
 # Resources Used
 [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf)\
 [Basler Software Downloads](https://www.baslerweb.com/en/downloads/software/)
