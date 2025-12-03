@@ -177,10 +177,10 @@ sudo apt install ros-<distro>-depthai-ros
 ```
 ### Installing from source
 Follow [this guide](https://docs.luxonis.com/software/ros/depthai-ros/build/) to install depthai ros from source or with docker. We found that this method took a long time and was ultimately problematic in the installation to the point where we could not get it working. Follow this method at your own risk.
-### Ip configuration
+### IP configuration
 If the camera is not on the same LAN, you can manually specify the IP address of the device. If DHCP server is not available, the camera will fallback to a static IP `169.254.1.222`.\
 \
-Our recommendation, and what we did in our project, is to let the camera fallback to its static ip and add in ipv4 address `169.254.X.XX` to your ethernet network connection with a subnet mask  `255.255.0.0`.
+Our recommendation, and what we did in our project, is to let the camera fallback to its static ip and add an ipv4 address `169.254.X.XX` to your ethernet network connection with a subnet mask  `255.255.0.0`.
 ### Using the launch files
 The run the basic camera launch file in the depthai ros driver, use the following command:
 ```bash
