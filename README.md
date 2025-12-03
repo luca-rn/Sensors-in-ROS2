@@ -143,7 +143,7 @@ The Basler cameras must be configured with a suitable IP for connection with the
 5) Go to network settings on your device and click to edit a network connection. For our project, we created a new connection as we had to add ip addresses for multiple devices.
 6) Add in IPV4 address `192.168.5.XX` (we used `192.168.5.2`) and the subnet mask `255.255.255.0`.
 7) Ensure that the changes are persisted.\
-This should be enough to enable that the camera is able to connect in ROS 2, it is recommended that you now test this in your ROS 2 workspace with the [camera launch command](using-the-pylon-ros2-camera-wrapper).
+This should be enough to enable that the camera is able to connect in ROS 2, it is recommended that you now test this in your ROS 2 workspace with the [camera launch command](#using-the-pylon-ros2-camera-wrapper).
 In the pylon suite, it is possible to make a custom configuration for the camera settings. 
 
 ### Using the pylon ros2 camera wrapper
