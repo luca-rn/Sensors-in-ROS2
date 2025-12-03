@@ -169,7 +169,7 @@ ros2 launch pylon_ros2_camera_wrapper my_blaze.launch.py
 ```
 Use `ros2 topic list` in another terminal to check if nodes run correctly and `rviz2` to view the camera streams.
 
-## Luxonis OAK-D Pro PoE - IR Stereo Camera
+## Luxonis (OAK-D Pro PoE)
 ### Installing from ROS Binaries (apt)
 This is the simplest and fastest way to install depthai ros. Use the following command:
 ```bash
