@@ -168,6 +168,25 @@ For the basler blaze:
 ros2 launch pylon_ros2_camera_wrapper my_blaze.launch.py
 ```
 Use `ros2 topic list` in another terminal to check if nodes run correctly and `rviz2` to view the camera streams.
+
+## Luxonis OAK-D Pro PoE - IR Stereo Camera
+### Installing from ROS Binaries (apt)
+This is the simplest and fastest way to install depthai ros. Use the following command:
+```bash
+sudo apt install ros-<distro>-depthai-ros
+```
+### Installing from source
+Follow [this guide](https://docs.luxonis.com/software/ros/depthai-ros/build/) to install depthai ros from source or with docker. We found that this method took a long time and was ultimately problematic in the installation to the point where we could not get it working. Follow this method at your own risk.
+### Ip configuration
+If the camera is not on the same LAN, you can manually specify the IP address of the device. If DHCP server is not available, the camera will fallback to a static IP `169.254.1.222`.\
+\
+Our recommendation, and what we did in our project, is to let the camera fallback to its static ip and add in ipv4 address `169.254.X.XX` to your ethernet network connection with a subnet mask  `255.255.0.0`.
+### Using the launch files
+The run the basic camera launch file in the depthai ros driver, use the following command:
+```bash
+ros2 launch depthai_ros_driver camera.launch.py
+```
+For more examples, see the launch directory or [Luxonis' ROS page](https://docs.luxonis.com/software/ros/depthai-ros/driver/).
 # Resources Used
 [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf)\
 [Basler Software Downloads](https://www.baslerweb.com/en/downloads/software/)
