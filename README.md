@@ -138,13 +138,25 @@ The Basler cameras must be configured with a suitable IP for connection with the
 2) Open the pylon ip configurator
 3) The connected camera should show up in the list of devices connected via ethernet. Select this device and give it an appropriate IP and name.\
   For Basler cameras, an IPV4 address `192.168.5.XX` is recommended, with the subnet mask `255.255.255.0` and ensure that the changes are saved.\
-  We used the ip `192.168.5.10` and the device name basler_ace_one.
+  For our Basler Ace2 camera used the ip `192.168.5.10` and the device name BaslerAce1.
 4) In terminal, use the command `ip addr` to check the your network connections. If an inet with an address  `192.168.5.XX` is listed under your ethernet connections, you may be able to connect to your camera in ROS immediately. Otherwise, you must add such an address manually.
 5) Go to network settings on your device and click to edit a network connection. For our project, we created a new connection as we had to add ip addresses for multiple devices.
 6) Add in IPV4 address `192.168.5.XX` (we used `192.168.5.2`) and the subnet mask `255.255.255.0`.
-7) Ensure that the changes are persisted.\ \
-This should be enough to enable that the camera is able to connect in ROS 2, it is recommended that you now test this in your ROS 2 workspace with the [camera launch command](#using-the-pylon-ros2-camera-wrapper).\ \
-In the pylon suite, it is possible to make a custom configuration for the camera settings. 
+7) Ensure that the changes are persisted.\
+\
+This should be enough to enable that the camera is able to connect in ROS 2, it is recommended that you now test this in your ROS 2 workspace with the [camera launch command](#using-the-pylon-ros2-camera-wrapper).\
+\
+If the camera can still not be found, it is recommended to edit or create a new `.yaml` file for the camera configuration. this can be found in `/pylon_ros2_camera/pylon_ros2_camera_wrapper/config`. Set the device name in the .yaml file to that which you assigned to your device. If you are using an RGB-enabled camera, you may also want to set the image encoding.\
+\
+In the pylon suite, it is possible to make a custom configuration for the camera settings. This can be used to set your desired configuration. In our experience, it was necessary to change the image encoding from greyscale to RGB in order to obtain a colour output from our basler ace camera. The use this configuration in ROS2, follow these steps:
+1) Save the custom configuration in the pylon suite and remember the name.
+2) Open the file, pylon_ros2_camera.launch.py in the launch directory of the pylon_ros2_camera_wrapper.
+3) Find the function DeclareLaunchArgument.
+4) Change the default_value parameter to the configuration that matches the name of your custom configuration (UserSet1, UserSet2 or UserSet3).
+5) Save the file and use colcon to build your workspace again
+```bash
+colcon build --packages-select pylon_ros2_camera
+```
 
 ### Using the pylon ros2 camera wrapper
 For the basler ace:
