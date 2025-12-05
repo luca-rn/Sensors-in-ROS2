@@ -39,8 +39,15 @@ To ensure that this file is sourced every time a terminal is opened, this setup 
 ```bash
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 ```
-To confirm this was successful, use the command `tail -1 .bashrc`.\
-To ensure the environment is properly set up, use the command `printenv | grep -i ROS`. This should return the following.
+To confirm this was successful, use the command 
+```bash
+tail -1 .bashrc
+```
+To ensure the environment is properly set up, use the command
+```bash
+printenv | grep -i ROS
+```
+This should return the following.
 ```bash
 ROS_VERSION=2
 ROS_PYTHON_VERSION=3
