@@ -187,6 +187,19 @@ The run the basic camera launch file in the depthai ros driver, use the followin
 ros2 launch depthai_ros_driver camera.launch.py
 ```
 For more examples, see the launch directory or [Luxonis' ROS page](https://docs.luxonis.com/software/ros/depthai-ros/driver/).
+
+## CANBus/CANopen Sensors (Cobo)
+We interfaced with the following sensors in this project:
+- FTI2 Incline/IMU.
+- FTM2 Speed, direction, distance and angle radar sensor.
+- FTU1 Ultrasonic sensor for distance measurements.
+- FTP2 IMU
+These sensors work on CANopen, a high-level protocol based on the CAN bus standard, designed for modular and real-time control in industrial automation systems.\
+
+\For interfacing with these sensors, we used a [Lawicel CANUSB adapter](https://www.canusb.com/products/canusb/).
+```bash
+git clone –b humble https://github.com/ROS4SPACE/ros2can_bridge.git
+```
 # Resources Used
 [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf)\
 [Basler Software Downloads](https://www.baslerweb.com/en/downloads/software/)
