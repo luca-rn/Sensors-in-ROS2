@@ -54,6 +54,10 @@ ROS_PYTHON_VERSION=3
 ROS_DISTRO=humble
 ```
 ### Initialising rosdep
+If rosdep is not installed, run:
+```bash
+sudo apt-get install python3-rosdep
+```
 The rosdep init command will create a file of dependencies in /etc/ros/rosdep/sources.list.d that hold some basic distro dependencies.
 ```bash
 sudo rosdep init
