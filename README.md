@@ -272,5 +272,5 @@ Assuming you have been able to follow the instruction from [Pascal Walter's guid
 
 # Resources Used
 [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf)\
-[Basler Software Downloads](https://www.baslerweb.com/en/downloads/software/)
+[Basler Software Downloads](https://www.baslerweb.com/en/downloads/software/)\
 [Guide to Setting up a Lawicel CANUsb](https://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html)
