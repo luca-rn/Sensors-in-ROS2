@@ -236,8 +236,7 @@ For integration with ROS2, we used a GitHub repository from ROS4SPACE, [ros2can_
   ```
   or, for the specific packages
   ```bash
-  cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/Sensors-in-ROS2/ros2socketcan_bridge.git
-  git clone https://github.com/luca-rn/Sensors-in-ROS2/can_msgs.git
+  cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/Sensors-in-ROS2/ros2can_bridge
   ```
 2. Install necessary dependencies and build the workspace
   ```bash
@@ -248,11 +247,11 @@ For integration with ROS2, we used a GitHub repository from ROS4SPACE, [ros2can_
 __Alternative 2__: Clone from ROS4SPACE
 Follow the same steps as alternative 1 but replace step 1 with the following.
 1. Clone it into your workspace with the following instructions
-```bash
-cd ~/dev_ws/src/
-git clone https://github.com/ROS4SPACE/ros2can_bridge.git
-```
-There are some issues with the ROS4SPACE than need changing, which is why using the code from this GitHub is recommended. One such change is the ros2_socketcan.cpp, where the name of the can socket must be changed (to slcan0 for whatever you have named your interface).
+  ```bash
+  cd ~/dev_ws/src/
+  git clone https://github.com/ROS4SPACE/ros2can_bridge.git
+  ```
+  There are some issues with the ROS4SPACE than need changing, which is why using the code from this GitHub is recommended. One such change is the ros2_socketcan.cpp, where the name of the can socket must be changed (to slcan0 for whatever you have named your interface).
 
 ### Using the CANBus with ROS 2
 Assuming you have been able to follow the instruction from [Pascal Walter's guide](https://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html), using the CANBus with ROS 2 should be relatively simple.
