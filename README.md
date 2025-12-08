@@ -219,11 +219,12 @@ We interfaced with the following sensors in this project:
 - FTM2 Speed, direction, distance and angle radar sensor.
 - FTU1 Ultrasonic sensor for distance measurements.
 - FTP2 IMU
+
 These sensors work on CANopen, a high-level protocol based on the CAN bus standard, designed for modular and real-time control in industrial automation systems.\
 \
 For interfacing with these sensors, we used a [Lawicel CANUSB adapter](https://www.canusb.com/products/canusb/).\
-
-\The setup for a CANUSB seems quite specific to the USB and the system. We originally used [this guide](https://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html) to set up. On one Jetson this went perfectly, when attempting to replicate the set up on another Jetson we encountered the problem that the Serial CAN module (slcan) could not be found when running `sudo lsmod | grep slcan` and `sudo modprobe slcan`. This seemed to be a problem with the linux installation and was not solveable without significant effort.
+\
+The setup for a CANUSB seems quite specific to the USB and the system. We originally used [this guide](https://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html) to set up. On one Jetson this went perfectly, when attempting to replicate the set up on another Jetson we encountered the problem that the Serial CAN module (slcan) could not be found when running `sudo lsmod | grep slcan` and `sudo modprobe slcan`. This seemed to be a problem with the linux installation and was not solveable without significant effort.
 
 
 ### ROS 2 Integration
@@ -272,3 +273,4 @@ Assuming you have been able to follow the instruction from [Pascal Walter's guid
 # Resources Used
 [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf)\
 [Basler Software Downloads](https://www.baslerweb.com/en/downloads/software/)
+[Guide to Setting up a Lawicel CANUsb](https://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html)
