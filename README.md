@@ -72,6 +72,7 @@ To install Colcon, run:
 ```bash
 sudo apt install python3-colcon-common-extensions
 ```
+When using colcon build, a specific package can be selected with the modifier `--packages-select XXXX` to make the build faster.
 ### Creating a Workspace
 To create a workspace, use the command
 ```bash
@@ -111,17 +112,20 @@ __If you downloaded a .tar.gz package:__\
 Details about installation and configuration are available from the included INSTALL and README files.
 
 ### Setting up the pylon camera driver in ROS 2
-1. Clone the driver packages to the relevant src folder
-
+__ALTERNATIVE 1__ (Recommended): Using this repository
+1. Clone this repository into your src folder
 ```bash
-cd ~/dev_ws/src/ && git clone –b humble
-https://github.com/basler/pylon-ros-camera pylon_ros2_camera
+cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/Sensors-in-ROS2.git
+```
+or, for the specific package
+```bash
+cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/Sensors-in-ROS2/pylon_ros2_camera.git
 ```
 2. (Not Tested) Clone any necessary additional packages. For example packages from ros-perception. Example given by basler is image_common.git.
 ```bash
-cd ~/pylon_ws/src/pylon_ros2_camera && git clone –b humble https://github.com/rosperception/image_common.git image_common
+cd ~/dev_ws/src/pylon_ros2_camera && git clone –b humble https://github.com/rosperception/image_common.git image_common
 ```
-4. Install mandatory dependencies
+3. Install mandatory dependencies
 ```bash
 cd ~/dev_ws && sudo rosdep install --frompaths src --ignore-src –r -y
 ```
@@ -142,6 +146,16 @@ source ~/.bashrc
 ros2 launch pylon_ros2_camera_wrapper pylon_ros2_camera.launch.py
 ```
 This automatically uses the first camera model that is found by underlaying pylon API. If no camera can be found, it will create an error.
+
+__Alternative 2__: Install from Basler's github
+
+Follow the same steps, but replace step 1 with the following:
+
+1. Clone the driver packages to the relevant src folder
+```bash
+cd ~/dev_ws/src/ && git clone –b humble
+https://github.com/basler/pylon-ros-camera pylon_ros2_camera
+```
 
 ### Camera configuration
 The Basler cameras must be configured with a suitable IP for connection with the ROS nodes. This can be easily achieved with the pylon IP configurator.
@@ -206,11 +220,55 @@ We interfaced with the following sensors in this project:
 - FTU1 Ultrasonic sensor for distance measurements.
 - FTP2 IMU
 These sensors work on CANopen, a high-level protocol based on the CAN bus standard, designed for modular and real-time control in industrial automation systems.\
+\
+For interfacing with these sensors, we used a [Lawicel CANUSB adapter](https://www.canusb.com/products/canusb/).\
 
-\For interfacing with these sensors, we used a [Lawicel CANUSB adapter](https://www.canusb.com/products/canusb/).
+\The setup for a CANUSB seems quite specific to the USB and the system. We originally used [this guide](https://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html) to set up. On one Jetson this went perfectly, when attempting to replicate the set up on another Jetson we encountered the problem that the Serial CAN module (slcan) could not be found when running `sudo lsmod | grep slcan` and `sudo modprobe slcan`. This seemed to be a problem with the linux installation and was not solveable without significant effort.
+
+
+### ROS 2 Integration
+__ALTERNATIVE 1__ (Recommended): Using this repository
+For integration with ROS2, we used a GitHub repository from ROS4SPACE, [ros2can_bridge](https://github.com/ROS4SPACE/ros2can_bridge.git). Some changes had to be made to get the code working, mostly renaming attributes which did not match what they were supposed to.
+1. Clone this repository to your src folder
 ```bash
-git clone –b humble https://github.com/ROS4SPACE/ros2can_bridge.git
+cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/Sensors-in-ROS2.git
 ```
+or, for the specific packages
+```bash
+cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/Sensors-in-ROS2/ros2socketcan_bridge.git
+git clone https://github.com/luca-rn/Sensors-in-ROS2/can_msgs.git
+```
+2. Install necessary dependencies and build the workspace
+```bash
+cd ~/dev_ws && sudo rosdep install --frompaths src --ignore-src –r -y
+colcon build --packages-select ros2socketcan_bridge can_msgs
+```
+
+__Alternative 2__: Clone from ROS4SPACE
+Follow the same steps as alternative 1 but replace step 1 with the following.
+1. Clone it into your workspace with the following instructions
+```bash
+cd ~/dev_ws/src/
+git clone https://github.com/ROS4SPACE/ros2can_bridge.git
+```
+There are some issues with the ROS4SPACE than need changing, which is why using the code from this GitHub is recommended.
+
+### Using the CANBus with ROS 2
+Assuming you have been able to follow the instruction from [Pascal Walter's guide](https://pascal-walter.blogspot.com/2015/08/installing-lawicel-canusb-on-linux.html), using the CANBus with ROS 2 should be relatively simple.
+
+1. First, check than the CANBus is working.\
+  After plugging the the USB:
+  Note: you do not need to bring up the slcan interface again if you succesfully made it permanent earlier. Also, if ttyUSBX is different then it needs to be changed, it can be checked by running "ls /dev" in terminal
+  ```bash
+  sudo slcand -o -c -f -s4 /dev/ttyUSB0 slcan0
+  sudo ifconfig slcan0 up
+  candump slcan0
+  ```
+  Then in another terminal:\
+  ```bash
+  cansend slcan0 000#0100
+  ```
+
 # Resources Used
 [_Interfacing Basler Cameras with ROS 2_](https://rjwilson.com/wp-content/uploads/Interfacing-Basler-Cameras-with-ROS-2-RJ-Wilson-Inc.pdf)\
 [Basler Software Downloads](https://www.baslerweb.com/en/downloads/software/)
