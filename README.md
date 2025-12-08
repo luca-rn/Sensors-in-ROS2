@@ -227,7 +227,7 @@ For interfacing with these sensors, we used a [Lawicel CANUSB adapter](https://w
 
 
 ### ROS 2 Integration
-__ALTERNATIVE 1__ (Recommended): Using this repository
+__ALTERNATIVE 1__ (Recommended): Using this repository\
 For integration with ROS2, we used a GitHub repository from ROS4SPACE, [ros2can_bridge](https://github.com/ROS4SPACE/ros2can_bridge.git). Some changes had to be made to get the code working, mostly renaming attributes which did not match what they were supposed to.
 1. Clone this repository to your src folder
 ```bash
