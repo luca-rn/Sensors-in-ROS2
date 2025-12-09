@@ -27,7 +27,7 @@ link_directories(
 # --- Executable (BOTH SOURCES) ---
 add_executable(triton_event_node
   src/triton_event_node.cpp
-  src/test_node.cpp
+  #src/test_node.cpp
 )
 
 target_include_directories(triton_event_node PRIVATE
