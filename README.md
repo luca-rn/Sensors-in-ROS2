@@ -241,6 +241,7 @@ For integration with ROS2, we used a GitHub repository from ROS4SPACE, [ros2can_
 2. Install necessary dependencies and build the workspace
   ```bash
   cd ~/dev_ws && sudo rosdep install --frompaths src --ignore-src –r -y
+  sudo apt install ros-humble-can-msgs
   colcon build --packages-select ros2socketcan_bridge can_msgs
   ```
 
@@ -273,6 +274,10 @@ Assuming you have been able to follow the instruction from [Pascal Walter's guid
   ```
   See the [CANopen wikipedia page](https://en.wikipedia.org/wiki/CANopen) to learn more about the various CANopen protocol command messages.
 2. Test the sensors in ROS 2
+  To start the ROS 2 node, use the command:
+  ```bash
+  ros2 run ros2socketcan_bridge ros2socketcan slcan0
+  ```
   You can check what topics are published using
   ```bash
   ros2 topic list
