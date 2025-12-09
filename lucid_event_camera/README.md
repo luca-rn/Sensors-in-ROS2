@@ -50,3 +50,10 @@ After updating the path, navigate back to your main workspace directory and buil
 cd ~/ros2_ws
 colcon build --packages-select lucid_event_camera
 ```
+
+### 5. Test the node
+When everything is finished building. Connect your Lucid Event camera and run the node:
+
+```Bash
+ros2 run lucid_event_camera triton_event_node
+```
