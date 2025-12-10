@@ -86,6 +86,17 @@ There are some known issues that require the xterm terminal emulator installatio
 sudo apt update
 sudo apt install xterm
 ```
+## Basler Cameras - Ace & Blaze
+A separate repository has been created for these cameras found [here](https://github.com/luca-rn/pylon-ros-camera.git). It contains a slightly modified version Basler's [pylon-ros-camera](https://github.com/basler/pylon-ros-camera.git). The repository contains a readme file with detailed instructions for installation and use.
+```bash
+cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/pylon-ros-camera.git pylon_ros2_camera
+```
+
+## Cobo Sensors (CANbus/CANopen)
+A separate repository has been created for these devices found [here](https://github.com/luca-rn/ros2can_bridge.git). It contains a slightly modified version ROS4Space's [ros2can_bridge](https://github.com/ROS4SPACE/ros2can_bridge.git). The repository contains a readme file with detailed instructions for installation and use.
+```bash
+cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/ros2can_bridge.git
+```
 
 ## Luxonis (OAK-D Pro PoE)
 ### Installing from ROS Binaries (apt)
