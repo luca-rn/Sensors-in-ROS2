@@ -7,7 +7,7 @@ ROS Version: [ROS 2 Humble Hawksbill](https://docs.ros.org/en/humble/index.html)
 
 ## ROS 2
 ### Installation
-A detailed description of how to install ROS 2 Humble can be found [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html).
+Here we detail how to install ROS 2 Humble, the original instructions from the ROS 2 website can be found [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html).
 1) Ensure that the Ubuntu Universe repository is enabled.
   ```bash
   sudo apt install software-properties-common
