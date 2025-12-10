@@ -106,7 +106,7 @@ sudo apt install ros-<distro>-depthai-ros
 ```
 
 ## Event Camera
-See the [event camera folder](https://github.com/luca-rn/Sensors-in-ROS2/lucid_event_camera-git).
+See the [event camera folder](https://github.com/luca-rn/Sensors-in-ROS2/lucid_event_camera.git).
 
 ### Installing from source
 Follow [this guide](https://docs.luxonis.com/software/ros/depthai-ros/build/) to install depthai ros from source or with docker. We found that this method took a long time and was ultimately problematic in the installation to the point where we could not get it working. Follow this method at your own risk.
