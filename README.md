@@ -105,9 +105,6 @@ This is the simplest and fastest way to install depthai ros. Use the following c
 sudo apt install ros-<distro>-depthai-ros
 ```
 
-## Event Camera
-See the [event camera folder](https://github.com/luca-rn/Sensors-in-ROS2/tree/main/lucid_event_camera).
-
 ### Installing from source
 Follow [this guide](https://docs.luxonis.com/software/ros/depthai-ros/build/) to install depthai ros from source or with docker. We found that this method took a long time and was ultimately problematic in the installation to the point where we could not get it working. Follow this method at your own risk.
 ### IP configuration
@@ -120,3 +117,7 @@ The run the basic camera launch file in the depthai ros driver, use the followin
 ros2 launch depthai_ros_driver camera.launch.py
 ```
 For more examples, see the launch directory or [Luxonis' ROS page](https://docs.luxonis.com/software/ros/depthai-ros/driver/).
+
+
+## Event Camera
+See the [event camera folder](https://github.com/luca-rn/Sensors-in-ROS2/tree/main/lucid_event_camera).
