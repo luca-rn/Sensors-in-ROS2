@@ -95,7 +95,7 @@ cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/pylon-ros-camera.git py
 ## Cobo Sensors (CANbus/CANopen)
 A separate repository has been created for these devices found [here](https://github.com/luca-rn/ros2can_bridge.git). It contains a slightly modified version ROS4Space's [ros2can_bridge](https://github.com/ROS4SPACE/ros2can_bridge.git). The repository contains a readme file with detailed instructions for installation and use.
 ```bash
-cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/ros2can_bridge.git
+cd ~/dev_ws/src/ && git clone https://github.com/luca-rn/ros2can_bridge.git ros2can_bridge
 ```
 
 ## Luxonis (OAK-D Pro PoE)
